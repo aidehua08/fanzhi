@@ -39,7 +39,7 @@ function CapabilityMarquee() {
       <div className="mb-8 px-5 sm:px-8">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-black uppercase tracking-[0.32em] text-signal">
-            what we make useful
+            AI 落地能力地图
           </p>
         </div>
       </div>
@@ -73,7 +73,7 @@ function Method() {
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <FadeIn delay={0.1}>
             <p className="max-w-xl text-xl font-medium leading-relaxed text-cloud/76 sm:text-2xl">
-              我们先理解企业如何赚钱、如何服务客户、团队每天卡在哪里，再把 AI 训练、工具和 Agent 做进实际流程。
+              真正的落地不是上一节课，也不是买一个工具。我们先理解企业怎么赚钱、怎么服务客户、团队每天卡在哪里，再把 AI 训练、工具和 Agent 做进实际流程。
             </p>
           </FadeIn>
           <div className="grid gap-4">
@@ -111,11 +111,11 @@ function Architecture() {
         <FadeIn>
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
             <h2 className="font-display text-[clamp(3.2rem,10vw,8.8rem)] font-black uppercase leading-none tracking-normal">
-              From data
-              <span className="block text-teal">to action</span>
+              从资料
+              <span className="block text-teal">到执行</span>
             </h2>
             <p className="max-w-xl text-xl font-medium leading-relaxed text-ink/66">
-              首页后半段从“未来感”切回“可信的企业交付”：数据怎么进来、知识怎么沉淀、Agent 怎么执行、流程怎么持续优化。
+              企业真正缺的不是更多 AI 概念，而是把文档、经验、客户记录和 SOP 变成可查询、可调用、可执行的工作系统。
             </p>
           </div>
         </FadeIn>
@@ -146,7 +146,7 @@ function Services() {
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <h2 className="font-display text-[clamp(3.5rem,12vw,10rem)] font-black uppercase leading-none tracking-normal">
-            Services
+            交付内容
           </h2>
         </FadeIn>
         <div className="mt-12 divide-y divide-ink/12 border-y border-ink/12">
@@ -231,10 +231,10 @@ function Scenarios() {
         <FadeIn>
           <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <h2 className="section-title font-display text-[clamp(3.3rem,11vw,9.5rem)] font-black uppercase leading-none tracking-normal">
-              场景案例
+              场景样板
             </h2>
             <p className="max-w-md text-lg leading-relaxed text-cloud/68">
-              先用典型场景搭好表达框架，后续可以无缝替换成你的真实客户案例。
+              先用典型业务场景呈现落地方式，后续可以替换成你的真实客户案例、截图和项目数据。
             </p>
           </div>
         </FadeIn>
