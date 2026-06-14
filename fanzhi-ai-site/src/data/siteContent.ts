@@ -17,11 +17,11 @@ export const navItems = [
 
 export const heroContent = {
   brand: '泛知科技',
-  eyebrow: 'AI CONSULTING / TRAINING / AGENT DELIVERY',
-  title: ['ENTERPRISE', 'AI COCKPIT'],
-  subtitle: '帮助中小企业把 AI 从概念变成可运行的业务系统。',
+  eyebrow: 'AI IMPLEMENTATION COCKPIT',
+  title: ['把 AI 变成', '企业里的第二套', '执行系统'],
+  subtitle: '从咨询诊断、团队培训，到 Agent 开发、知识库建设和落地陪跑，帮中小企业把 AI 真正跑进业务现场。',
   primaryCta: '预约 AI 诊断',
-  secondaryCta: '查看落地场景',
+  secondaryCta: '查看落地路径',
 }
 
 export const heroMetrics = [

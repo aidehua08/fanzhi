@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
-import { heroContent, heroMetrics, navItems } from '../../data/siteContent'
-import { FloatingMetricCard } from './FloatingMetricCard'
+import { heroContent, navItems } from '../../data/siteContent'
+import { AIDemoConsole } from './AIDemoConsole'
 
 type HeroHudProps = {
   onPrimaryClick: (event: React.MouseEvent<HTMLAnchorElement>) => void
@@ -24,54 +24,40 @@ export function HeroHud({ onPrimaryClick }: HeroHudProps) {
         </nav>
       </header>
 
-      <motion.p
-        className="hero-eyebrow"
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.1 }}
-      >
-        {heroContent.eyebrow}
-      </motion.p>
+      <div className="hero-command-layout">
+        <motion.div
+          className="hero-copy-panel"
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.14 }}
+        >
+          <p className="hero-eyebrow">{heroContent.eyebrow}</p>
+          <h1 className="hero-cockpit-title">
+            {heroContent.title.map((line) => (
+              <span data-text={line} key={line}>
+                {line}
+              </span>
+            ))}
+          </h1>
+          <p className="hero-subtitle">{heroContent.subtitle}</p>
+          <div className="hero-trust-strip" aria-label="泛知科技服务范围">
+            <span>AI 咨询诊断</span>
+            <span>企业培训</span>
+            <span>Agent 开发</span>
+            <span>知识库陪跑</span>
+          </div>
+          <div className="hero-actions">
+            <a href="#contact" className="hero-primary-btn" onClick={onPrimaryClick}>
+              {heroContent.primaryCta}
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <a href="#delivery" className="hero-secondary-btn">
+              {heroContent.secondaryCta}
+            </a>
+          </div>
+        </motion.div>
 
-      <motion.h1
-        className="hero-cockpit-title"
-        initial={{ opacity: 0, filter: 'blur(8px)', y: 30 }}
-        animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-        transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-      >
-        {heroContent.title.map((line) => (
-          <span data-text={line} key={line}>
-            {line}
-          </span>
-        ))}
-      </motion.h1>
-
-      <motion.div
-        className="hero-copy-panel"
-        initial={{ opacity: 0, y: 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.55 }}
-      >
-        <p>{heroContent.subtitle}</p>
-        <div className="hero-actions">
-          <a href="#contact" className="hero-primary-btn" onClick={onPrimaryClick}>
-            {heroContent.primaryCta}
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
-          <a href="#cases" className="hero-secondary-btn">
-            {heroContent.secondaryCta}
-          </a>
-        </div>
-      </motion.div>
-
-      <div className="hero-metrics" aria-hidden="true">
-        {heroMetrics.map((metric, index) => (
-          <FloatingMetricCard
-            key={metric.label}
-            {...metric}
-            delay={0.65 + index * 0.08}
-          />
-        ))}
+        <AIDemoConsole />
       </div>
 
       <a className="hero-scroll-cue" href="#consulting" aria-label="继续浏览">
