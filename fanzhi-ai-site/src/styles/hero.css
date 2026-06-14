@@ -7,9 +7,10 @@
   min-height: 100svh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 52% 36%, rgba(94, 234, 212, 0.18), transparent 28%),
-    radial-gradient(circle at 80% 78%, rgba(255, 59, 87, 0.12), transparent 30%),
-    linear-gradient(180deg, #020617 0%, #07111f 100%);
+    radial-gradient(circle at 50% 42%, rgba(94, 234, 212, 0.2), transparent 31%),
+    radial-gradient(circle at 74% 74%, rgba(255, 59, 87, 0.13), transparent 27%),
+    radial-gradient(circle at 24% 22%, rgba(56, 189, 248, 0.12), transparent 26%),
+    linear-gradient(180deg, #020511 0%, #07111f 100%);
   color: #e5faff;
 }
 
@@ -58,15 +59,20 @@
   position: absolute;
   left: 50%;
   top: 47%;
-  z-index: 3;
-  width: min(42vw, 34rem);
+  z-index: 1;
+  width: min(40vw, 31rem);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(94, 234, 212, 0.38);
+  border: 0;
   border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(94, 234, 212, 0.16), rgba(56, 189, 248, 0.06) 40%, transparent 68%),
+    radial-gradient(circle at 65% 62%, rgba(255, 77, 109, 0.12), transparent 42%);
   box-shadow:
-    0 0 90px rgba(94, 234, 212, 0.18),
-    inset 0 0 56px rgba(94, 234, 212, 0.08);
+    0 0 120px rgba(94, 234, 212, 0.12),
+    inset 0 0 80px rgba(56, 189, 248, 0.07);
+  filter: blur(0.4px);
+  opacity: 0.42;
 }
 
 .hero-cockpit-fallback::before,
@@ -77,15 +83,16 @@
 }
 
 .hero-cockpit-fallback::before {
-  inset: 13%;
-  border: 1px dashed rgba(56, 189, 248, 0.34);
-  animation: cockpit-spin 28s linear infinite;
+  inset: 9%;
+  border: 1px solid rgba(148, 251, 245, 0.08);
+  box-shadow: inset 0 0 52px rgba(94, 234, 212, 0.08);
 }
 
 .hero-cockpit-fallback::after {
-  inset: 38%;
-  background: rgba(94, 234, 212, 0.22);
-  box-shadow: 0 0 42px rgba(94, 234, 212, 0.56);
+  inset: 36%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(94, 234, 212, 0.18) 36%, transparent 72%);
+  box-shadow: 0 0 56px rgba(94, 234, 212, 0.28);
 }
 
 .hero-hud {
@@ -399,7 +406,7 @@
 
   .hero-cockpit-fallback {
     top: 38%;
-    width: min(74vw, 18rem);
+    width: min(62vw, 16rem);
   }
 
   .hero-cockpit-title {
