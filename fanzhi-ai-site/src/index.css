@@ -1,0 +1,561 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import './styles/hero.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #06101c;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #06101c;
+  color: #d9eef4;
+  font-family: Inter, 'Noto Sans SC', system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+}
+
+.hero-title,
+.section-title {
+  background: linear-gradient(180deg, #ffffff 0%, #c8eff7 38%, #80fff2 70%, #d7ff6e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-aurora {
+  background:
+    radial-gradient(circle at 71% 31%, rgba(128, 255, 242, 0.28), transparent 22rem),
+    radial-gradient(circle at 18% 78%, rgba(215, 255, 110, 0.14), transparent 24rem),
+    radial-gradient(circle at 48% 24%, rgba(25, 198, 195, 0.18), transparent 25rem),
+    linear-gradient(180deg, rgba(6, 16, 28, 0) 0%, #06101c 88%);
+}
+
+.data-grid {
+  background-image:
+    linear-gradient(rgba(217, 238, 244, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 238, 244, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at 50% 32%, black 0%, transparent 72%);
+}
+
+.star-field {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.7) 0 1px, transparent 1.2px),
+    radial-gradient(circle, rgba(128, 255, 242, 0.8) 0 1px, transparent 1.2px);
+  background-position:
+    12px 20px,
+    46px 81px;
+  background-size:
+    120px 120px,
+    180px 180px;
+  opacity: 0.22;
+  animation: starDrift 24s linear infinite;
+}
+
+.boot-panel {
+  border: 1px solid rgba(217, 238, 244, 0.12);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02)),
+    rgba(6, 16, 28, 0.58);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 24px 70px rgba(0, 0, 0, 0.22);
+  padding: 1rem;
+  backdrop-filter: blur(18px);
+}
+
+.portal-shell {
+  position: relative;
+  isolation: isolate;
+  width: min(28rem, 86vw);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+.portal-halo {
+  position: absolute;
+  inset: 7%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(128, 255, 242, 0.14), transparent 46%),
+    conic-gradient(from 90deg, transparent, rgba(128, 255, 242, 0.75), transparent, rgba(215, 255, 110, 0.55), transparent);
+  filter: blur(22px);
+  opacity: 0.72;
+  animation: pulseGlow 4.8s ease-in-out infinite;
+}
+
+.portal-ring {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(128, 255, 242, 0.28);
+  box-shadow:
+    inset 0 0 30px rgba(128, 255, 242, 0.08),
+    0 0 60px rgba(25, 198, 195, 0.08);
+  transform: rotateX(64deg);
+}
+
+.ring-one {
+  inset: 8%;
+  animation: orbitSpin 16s linear infinite;
+}
+
+.ring-two {
+  inset: 19%;
+  border-style: dashed;
+  border-color: rgba(215, 255, 110, 0.38);
+  animation: orbitSpin 21s linear reverse infinite;
+}
+
+.ring-three {
+  inset: 30%;
+  border-width: 2px;
+  animation: orbitSpin 12s linear infinite;
+}
+
+.portal-scan {
+  position: absolute;
+  inset: 4%;
+  border-radius: 999px;
+  background: conic-gradient(from 0deg, transparent 0 72%, rgba(128, 255, 242, 0.5) 78%, transparent 84% 100%);
+  opacity: 0.48;
+  animation: orbitSpin 4.6s linear infinite;
+  mask-image: radial-gradient(circle, transparent 0 28%, black 30% 52%, transparent 54%);
+}
+
+.portal-core {
+  position: absolute;
+  inset: 32%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.9), rgba(217, 238, 244, 0.86) 34%, rgba(25, 198, 195, 0.16) 72%),
+    rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 80px rgba(128, 255, 242, 0.26),
+    inset 0 0 50px rgba(255, 255, 255, 0.18);
+}
+
+.portal-core img {
+  width: 74%;
+  border-radius: 999px;
+  mix-blend-mode: multiply;
+}
+
+.portal-node {
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: #d7ff6e;
+  box-shadow: 0 0 28px rgba(215, 255, 110, 0.8);
+}
+
+.node-a {
+  left: 18%;
+  top: 25%;
+}
+
+.node-b {
+  right: 14%;
+  top: 35%;
+  background: #80fff2;
+  box-shadow: 0 0 28px rgba(128, 255, 242, 0.8);
+}
+
+.node-c {
+  bottom: 20%;
+  left: 28%;
+  background: #ff7a45;
+  box-shadow: 0 0 28px rgba(255, 122, 69, 0.65);
+}
+
+.node-d {
+  bottom: 25%;
+  right: 23%;
+}
+
+.portal-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  display: inline-flex;
+  transform: translateX(-50%);
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+  border: 1px solid rgba(128, 255, 242, 0.28);
+  border-radius: 999px;
+  background: rgba(6, 16, 28, 0.62);
+  padding: 0.65rem 1rem;
+  color: rgba(217, 238, 244, 0.72);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  backdrop-filter: blur(16px);
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: marqueeMove 36s linear infinite;
+  will-change: transform;
+}
+
+.marquee-reverse .marquee-track {
+  animation-direction: reverse;
+  animation-duration: 42s;
+}
+
+.marquee-tile {
+  display: inline-flex;
+  min-width: 260px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid rgba(217, 238, 244, 0.12);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.025);
+  color: rgba(217, 238, 244, 0.82);
+  padding: 1.25rem 1.75rem;
+  font-size: 1.05rem;
+  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.process-card,
+.architecture-card {
+  border: 1px solid rgba(217, 238, 244, 0.11);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.025);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.process-card {
+  display: flex;
+  gap: 1.25rem;
+  border-radius: 2rem;
+  padding: 1.5rem;
+}
+
+.architecture-card {
+  min-height: 17rem;
+  border-color: rgba(6, 16, 28, 0.12);
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(232, 246, 249, 0.74)),
+    #ffffff;
+  padding: 1.45rem;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.architecture-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(8, 119, 124, 0.28);
+  box-shadow: 0 22px 60px rgba(6, 16, 28, 0.1);
+}
+
+.scenario-visual {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(circle at 52% 45%, rgba(128, 255, 242, 0.24), transparent 28%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
+}
+
+.scenario-visual::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(120deg, transparent 0 36%, rgba(255, 255, 255, 0.08) 48%, transparent 62%);
+  transform: translateX(-80%);
+  animation: visualSweep 6s ease-in-out infinite;
+}
+
+.scenario-visual-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(226, 232, 240, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(226, 232, 240, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 78%);
+}
+
+.scenario-visual-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9rem;
+  height: 9rem;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(128, 255, 242, 0.45);
+  border-radius: 999px;
+  box-shadow: 0 0 60px rgba(128, 255, 242, 0.2);
+}
+
+.scenario-visual-core::before,
+.scenario-visual-core::after {
+  position: absolute;
+  content: '';
+  border-radius: 999px;
+}
+
+.scenario-visual-core::before {
+  inset: 1.2rem;
+  border: 1px dashed rgba(56, 189, 248, 0.46);
+}
+
+.scenario-visual-core::after {
+  inset: 3.4rem;
+  background: rgba(128, 255, 242, 0.24);
+  box-shadow: 0 0 36px rgba(128, 255, 242, 0.5);
+}
+
+.scenario-visual-line {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(128, 255, 242, 0.8), transparent);
+  box-shadow: 0 0 22px rgba(128, 255, 242, 0.42);
+}
+
+.scenario-visual-line-one {
+  top: 38%;
+  transform: rotate(-8deg);
+}
+
+.scenario-visual-line-two {
+  top: 62%;
+  transform: rotate(7deg);
+}
+
+.scenario-visual-node {
+  position: absolute;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 999px;
+  background: #80fff2;
+  box-shadow: 0 0 26px rgba(128, 255, 242, 0.78);
+}
+
+.scenario-visual-node-a {
+  left: 21%;
+  top: 31%;
+}
+
+.scenario-visual-node-b {
+  right: 22%;
+  top: 42%;
+  background: #ff3b57;
+  box-shadow: 0 0 26px rgba(255, 59, 87, 0.58);
+}
+
+.scenario-visual-node-c {
+  bottom: 25%;
+  left: 42%;
+  background: #d7ff6e;
+  box-shadow: 0 0 26px rgba(215, 255, 110, 0.64);
+}
+
+.scenario-visual-sales-agent {
+  background:
+    radial-gradient(circle at 25% 70%, rgba(255, 59, 87, 0.2), transparent 26%),
+    radial-gradient(circle at 62% 45%, rgba(128, 255, 242, 0.24), transparent 28%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
+}
+
+.scenario-visual-knowledge-base {
+  background:
+    radial-gradient(circle at 74% 34%, rgba(56, 189, 248, 0.22), transparent 30%),
+    radial-gradient(circle at 46% 62%, rgba(128, 255, 242, 0.22), transparent 30%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
+}
+
+.contact-qr-card {
+  border: 1px solid rgba(6, 16, 28, 0.12);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(232, 246, 249, 0.78)),
+    #ffffff;
+  padding: 1rem;
+}
+
+.contact-qr {
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px dashed rgba(6, 16, 28, 0.22);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(90deg, rgba(6, 16, 28, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(6, 16, 28, 0.08) 1px, transparent 1px),
+    #f5f9fb;
+  background-size: 18px 18px;
+  color: #06101c;
+  font-weight: 950;
+}
+
+.contact-qr span:first-child {
+  align-self: end;
+  color: rgba(6, 16, 28, 0.54);
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+}
+
+.contact-qr span:last-child {
+  align-self: start;
+  color: #08777c;
+  font-size: 2rem;
+}
+
+@keyframes marqueeMove {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotateX(64deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(64deg) rotateZ(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+@keyframes starDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-120px, 120px, 0);
+  }
+}
+
+@keyframes visualSweep {
+  0%,
+  48% {
+    transform: translateX(-88%);
+  }
+
+  78%,
+  100% {
+    transform: translateX(88%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .portal-shell {
+    width: min(29rem, 92vw);
+  }
+}
+
+@media (max-width: 640px) {
+  .boot-panel {
+    display: none;
+  }
+
+  .portal-shell {
+    width: min(22rem, 92vw);
+  }
+
+  .portal-caption {
+    bottom: 4%;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  .marquee-track {
+    gap: 0.75rem;
+    animation-duration: 30s;
+  }
+
+  .marquee-tile {
+    min-width: 210px;
+    border-radius: 1.15rem;
+    padding: 1rem 1.25rem;
+    font-size: 0.92rem;
+  }
+
+  .process-card {
+    flex-direction: column;
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

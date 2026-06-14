@@ -1,0 +1,416 @@
+.hero-cockpit {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 52% 36%, rgba(94, 234, 212, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 78%, rgba(255, 59, 87, 0.12), transparent 30%),
+    linear-gradient(180deg, #020617 0%, #07111f 100%);
+  color: #e5faff;
+}
+
+.hero-cockpit::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: '';
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at 50% 46%, black, transparent 78%);
+}
+
+.hero-cockpit::after {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  content: '';
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.035) 0 1px,
+    transparent 1px 5px
+  );
+  opacity: 0.2;
+  mix-blend-mode: screen;
+}
+
+.cockpit-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-cockpit-fallback {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  z-index: 3;
+  width: min(42vw, 34rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(94, 234, 212, 0.38);
+  border-radius: 999px;
+  box-shadow:
+    0 0 90px rgba(94, 234, 212, 0.18),
+    inset 0 0 56px rgba(94, 234, 212, 0.08);
+}
+
+.hero-cockpit-fallback::before,
+.hero-cockpit-fallback::after {
+  position: absolute;
+  content: '';
+  border-radius: 999px;
+}
+
+.hero-cockpit-fallback::before {
+  inset: 13%;
+  border: 1px dashed rgba(56, 189, 248, 0.34);
+  animation: cockpit-spin 28s linear infinite;
+}
+
+.hero-cockpit-fallback::after {
+  inset: 38%;
+  background: rgba(94, 234, 212, 0.22);
+  box-shadow: 0 0 42px rgba(94, 234, 212, 0.56);
+}
+
+.hero-hud {
+  position: relative;
+  z-index: 8;
+  min-height: 100svh;
+  padding: 1.25rem clamp(1.25rem, 4vw, 4rem) 2rem;
+}
+
+.hero-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 88rem;
+  border: 1px solid rgba(226, 232, 240, 0.12);
+  border-radius: 999px;
+  background: rgba(2, 6, 23, 0.58);
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(20px);
+}
+
+.hero-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #e5faff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-decoration: none;
+}
+
+.hero-brand-mark {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid rgba(94, 234, 212, 0.36);
+  border-radius: 999px;
+  background: rgba(94, 234, 212, 0.12);
+  color: #5eead4;
+  letter-spacing: 0;
+}
+
+.hero-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 999px;
+  background: rgba(226, 232, 240, 0.055);
+  padding: 0.25rem;
+}
+
+.hero-nav-links a {
+  border-radius: 999px;
+  color: rgba(226, 232, 240, 0.7);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.65rem 1rem;
+  text-decoration: none;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.hero-nav-links a:hover {
+  background: rgba(226, 232, 240, 0.1);
+  color: #ffffff;
+}
+
+.hero-eyebrow {
+  position: absolute;
+  left: clamp(1.25rem, 4vw, 4rem);
+  top: 8.5rem;
+  max-width: 18rem;
+  color: rgba(226, 232, 240, 0.62);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  line-height: 1.6;
+}
+
+.hero-cockpit-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 45%;
+  width: 100%;
+  margin: 0;
+  padding: 0 clamp(1rem, 4vw, 4rem);
+  text-align: center;
+  font-size: clamp(4rem, 8.2vw, 8.8rem);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.84;
+  text-transform: uppercase;
+}
+
+.hero-cockpit-title span {
+  position: relative;
+  display: block;
+  background: linear-gradient(180deg, #ffffff 0%, #bdeeff 42%, #5eead4 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 44px rgba(94, 234, 212, 0.18);
+}
+
+.hero-cockpit-title span::before,
+.hero-cockpit-title span::after {
+  position: absolute;
+  inset: 0;
+  content: attr(data-text);
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.hero-cockpit-title span::before {
+  color: #ff3b57;
+  transform: translate(-0.035em, 0.016em);
+}
+
+.hero-cockpit-title span::after {
+  color: #38bdf8;
+  transform: translate(0.035em, -0.012em);
+}
+
+.hero-copy-panel {
+  position: absolute;
+  left: clamp(1.25rem, 4vw, 4rem);
+  bottom: clamp(2rem, 7vw, 5rem);
+  max-width: 28rem;
+}
+
+.hero-copy-panel p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.78);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 650;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3rem;
+  border-radius: 999px;
+  padding: 0 1.25rem;
+  font-size: 0.86rem;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.hero-primary-btn {
+  background: #5eead4;
+  color: #03131c;
+  box-shadow: 0 0 42px rgba(94, 234, 212, 0.28);
+}
+
+.hero-secondary-btn {
+  border: 1px solid rgba(226, 232, 240, 0.16);
+  background: rgba(226, 232, 240, 0.055);
+  color: rgba(226, 232, 240, 0.8);
+}
+
+.hero-metrics {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-metric-card {
+  position: absolute;
+  min-width: 9.8rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 1.1rem;
+  background: rgba(2, 6, 23, 0.68);
+  padding: 0.85rem 1rem;
+  backdrop-filter: blur(18px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hero-metric-card span {
+  display: block;
+  color: #5eead4;
+  font-size: 1.35rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.hero-metric-card p {
+  margin: 0.4rem 0 0;
+  color: rgba(226, 232, 240, 0.68);
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.hero-scroll-cue {
+  position: absolute;
+  right: clamp(1.25rem, 4vw, 4rem);
+  bottom: clamp(2rem, 7vw, 5rem);
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid rgba(94, 234, 212, 0.28);
+  border-radius: 999px;
+  background: rgba(2, 6, 23, 0.58);
+  color: #5eead4;
+  text-decoration: none;
+}
+
+.pointer-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+}
+
+.pointer-aura {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18rem;
+  height: 18rem;
+  margin-left: -9rem;
+  margin-top: -9rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(94, 234, 212, 0.2), rgba(94, 234, 212, 0.05) 38%, transparent 68%);
+  filter: blur(2px);
+  mix-blend-mode: screen;
+}
+
+.pointer-ripple {
+  position: absolute;
+  width: 28rem;
+  height: 28rem;
+  margin-left: -14rem;
+  margin-top: -14rem;
+  border: 1px solid rgba(94, 234, 212, 0.5);
+  border-radius: 999px;
+  box-shadow: 0 0 34px rgba(94, 234, 212, 0.22);
+}
+
+@keyframes cockpit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-hud {
+    padding: 0.75rem 1rem 1.5rem;
+  }
+
+  .hero-nav {
+    padding: 0.55rem 0.65rem;
+  }
+
+  .hero-brand {
+    letter-spacing: 0.12em;
+  }
+
+  .hero-brand span:last-child {
+    display: inline;
+    font-size: 0.72rem;
+  }
+
+  .hero-nav-links a {
+    padding: 0.55rem 0.55rem;
+    font-size: 0.7rem;
+  }
+
+  .hero-nav-links a:nth-child(5) {
+    display: none;
+  }
+
+  .hero-eyebrow {
+    left: 1.1rem;
+    right: 1.1rem;
+    top: 6.2rem;
+    max-width: 16rem;
+  }
+
+  .hero-cockpit-fallback {
+    top: 38%;
+    width: min(74vw, 18rem);
+  }
+
+  .hero-cockpit-title {
+    top: 39%;
+    font-size: clamp(2.6rem, 13.4vw, 3.8rem);
+  }
+
+  .hero-copy-panel {
+    left: 1rem;
+    right: 1rem;
+    bottom: 4.75rem;
+    max-width: none;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    width: 100%;
+  }
+
+  .hero-metric-card,
+  .pointer-layer {
+    display: none;
+  }
+
+  .hero-scroll-cue {
+    right: 1rem;
+    bottom: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cockpit-fallback::before {
+    animation: none;
+  }
+}

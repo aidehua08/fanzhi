@@ -1,0 +1,15 @@
+.DS_Store
+.superpowers/
+output/
+
+企业信息/
+参考网页/
+
+fanzhi-ai-site/node_modules/
+fanzhi-ai-site/dist/
+fanzhi-ai-site/*.png
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
