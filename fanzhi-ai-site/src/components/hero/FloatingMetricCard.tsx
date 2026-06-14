@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion'
+import type { CSSProperties } from 'react'
+
+type MetricStyle = CSSProperties & {
+  '--metric-strength': number
+}
 
 type FloatingMetricCardProps = {
   value: string
   label: string
   x: number
   y: number
-  offsetX: number
-  offsetY: number
+  strength: number
   delay: number
 }
 
@@ -15,8 +19,7 @@ export function FloatingMetricCard({
   label,
   x,
   y,
-  offsetX,
-  offsetY,
+  strength,
   delay,
 }: FloatingMetricCardProps) {
   return (
@@ -25,8 +28,8 @@ export function FloatingMetricCard({
       style={{
         left: `${x}%`,
         top: `${y}%`,
-        transform: `translate3d(${offsetX}px, ${offsetY}px, 0)`,
-      }}
+        '--metric-strength': strength,
+      } as MetricStyle}
       initial={{ opacity: 0, y: 18, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, delay, ease: [0.25, 0.1, 0.25, 1] }}

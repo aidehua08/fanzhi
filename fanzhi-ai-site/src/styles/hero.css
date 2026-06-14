@@ -1,5 +1,9 @@
 .hero-cockpit {
   position: relative;
+  --pointer-x: 0;
+  --pointer-y: 0;
+  --pointer-page-x: 50vw;
+  --pointer-page-y: 50vh;
   min-height: 100svh;
   overflow: hidden;
   background:
@@ -40,6 +44,12 @@
   position: absolute;
   inset: 0;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.cockpit-canvas canvas {
+  display: block;
   width: 100%;
   height: 100%;
 }
@@ -172,6 +182,8 @@
   letter-spacing: 0;
   line-height: 0.84;
   text-transform: uppercase;
+  transform: translate3d(calc(var(--pointer-x) * -10px), calc(var(--pointer-y) * -6px), 0);
+  will-change: transform;
 }
 
 .hero-cockpit-title span {
@@ -210,6 +222,9 @@
   left: clamp(1.25rem, 4vw, 4rem);
   bottom: clamp(2rem, 7vw, 5rem);
   max-width: 28rem;
+  border-radius: 1.5rem;
+  background: radial-gradient(ellipse at 10% 50%, rgba(2, 6, 23, 0.72), rgba(2, 6, 23, 0.28) 62%, transparent 78%);
+  padding: 0.85rem 0.95rem 0.95rem 0;
 }
 
 .hero-copy-panel p {
@@ -218,6 +233,7 @@
   font-size: clamp(1rem, 2vw, 1.35rem);
   font-weight: 650;
   line-height: 1.65;
+  text-shadow: 0 2px 18px rgba(2, 6, 23, 0.95);
 }
 
 .hero-actions {
@@ -261,6 +277,7 @@
 
 .hero-metric-card {
   position: absolute;
+  --metric-strength: 1;
   min-width: 9.8rem;
   border: 1px solid rgba(148, 163, 184, 0.22);
   border-radius: 1.1rem;
@@ -268,6 +285,12 @@
   padding: 0.85rem 1rem;
   backdrop-filter: blur(18px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translate3d(
+    calc(var(--pointer-x) * var(--metric-strength) * 18px),
+    calc(var(--pointer-y) * var(--metric-strength) * 14px),
+    0
+  );
+  will-change: transform;
 }
 
 .hero-metric-card span {
@@ -309,8 +332,8 @@
 
 .pointer-aura {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: var(--pointer-page-x);
+  top: var(--pointer-page-y);
   width: 18rem;
   height: 18rem;
   margin-left: -9rem;
@@ -319,6 +342,8 @@
   background: radial-gradient(circle, rgba(94, 234, 212, 0.2), rgba(94, 234, 212, 0.05) 38%, transparent 68%);
   filter: blur(2px);
   mix-blend-mode: screen;
+  transform: translate3d(0, 0, 0);
+  will-change: left, top;
 }
 
 .pointer-ripple {

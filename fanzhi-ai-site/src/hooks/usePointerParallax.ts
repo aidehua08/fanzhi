@@ -1,4 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+export type PointerState = {
+  x: number
+  y: number
+  pageX: number
+  pageY: number
+}
 
 export type Ripple = {
   id: number
@@ -7,7 +14,9 @@ export type Ripple = {
 }
 
 export function usePointerParallax() {
-  const [pointer, setPointer] = useState({ x: 0, y: 0, pageX: 0, pageY: 0 })
+  const rootRef = useRef<HTMLElement | null>(null)
+  const pointerRef = useRef<PointerState>({ x: 0, y: 0, pageX: 0, pageY: 0 })
+  const rafRef = useRef(0)
   const [ripples, setRipples] = useState<Ripple[]>([])
   const [reducedMotion, setReducedMotion] = useState(false)
 
@@ -21,6 +30,23 @@ export function usePointerParallax() {
     return () => query.removeEventListener('change', update)
   }, [])
 
+  function syncCssVariables() {
+    rafRef.current = 0
+    const root = rootRef.current
+    if (!root) return
+
+    const pointer = pointerRef.current
+    root.style.setProperty('--pointer-x', `${pointer.x}`)
+    root.style.setProperty('--pointer-y', `${pointer.y}`)
+    root.style.setProperty('--pointer-page-x', `${pointer.pageX}px`)
+    root.style.setProperty('--pointer-page-y', `${pointer.pageY}px`)
+  }
+
+  function scheduleCssSync() {
+    if (rafRef.current) return
+    rafRef.current = window.requestAnimationFrame(syncCssVariables)
+  }
+
   function handlePointerMove(event: React.PointerEvent<HTMLElement>) {
     if (reducedMotion) return
 
@@ -28,16 +54,19 @@ export function usePointerParallax() {
     const x = (event.clientX - rect.left) / rect.width - 0.5
     const y = (event.clientY - rect.top) / rect.height - 0.5
 
-    setPointer({
+    pointerRef.current = {
       x: Math.max(-0.5, Math.min(0.5, x)) * 2,
       y: Math.max(-0.5, Math.min(0.5, y)) * 2,
       pageX: event.clientX - rect.left,
       pageY: event.clientY - rect.top,
-    })
+    }
+
+    scheduleCssSync()
   }
 
   function handlePointerLeave() {
-    setPointer((current) => ({ ...current, x: 0, y: 0 }))
+    pointerRef.current = { ...pointerRef.current, x: 0, y: 0 }
+    scheduleCssSync()
   }
 
   function addRipple(event: React.MouseEvent<HTMLElement>) {
@@ -54,8 +83,15 @@ export function usePointerParallax() {
     }, 900)
   }
 
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) window.cancelAnimationFrame(rafRef.current)
+    }
+  }, [])
+
   return {
-    pointer,
+    rootRef,
+    pointerRef,
     ripples,
     reducedMotion,
     handlePointerMove,

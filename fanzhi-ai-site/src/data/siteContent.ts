@@ -16,7 +16,7 @@ export const navItems = [
 ]
 
 export const heroContent = {
-  brand: '泛之 AI',
+  brand: '泛知科技',
   eyebrow: 'AI CONSULTING / TRAINING / AGENT DELIVERY',
   title: ['ENTERPRISE', 'AI COCKPIT'],
   subtitle: '帮助中小企业把 AI 从概念变成可运行的业务系统。',

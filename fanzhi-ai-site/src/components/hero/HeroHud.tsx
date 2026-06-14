@@ -4,15 +4,14 @@ import { heroContent, heroMetrics, navItems } from '../../data/siteContent'
 import { FloatingMetricCard } from './FloatingMetricCard'
 
 type HeroHudProps = {
-  parallax: { x: number; y: number }
   onPrimaryClick: (event: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-export function HeroHud({ parallax, onPrimaryClick }: HeroHudProps) {
+export function HeroHud({ onPrimaryClick }: HeroHudProps) {
   return (
     <div className="hero-hud">
       <header className="hero-nav">
-        <a className="hero-brand" href="#" aria-label="泛之 AI 首页">
+        <a className="hero-brand" href="#" aria-label="泛知科技首页">
           <span className="hero-brand-mark">FZ</span>
           <span>{heroContent.brand}</span>
         </a>
@@ -36,7 +35,6 @@ export function HeroHud({ parallax, onPrimaryClick }: HeroHudProps) {
 
       <motion.h1
         className="hero-cockpit-title"
-        style={{ x: parallax.x * -10, y: parallax.y * -6 }}
         initial={{ opacity: 0, filter: 'blur(8px)', y: 30 }}
         animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
         transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
@@ -71,8 +69,6 @@ export function HeroHud({ parallax, onPrimaryClick }: HeroHudProps) {
           <FloatingMetricCard
             key={metric.label}
             {...metric}
-            offsetX={parallax.x * 18 * metric.strength}
-            offsetY={parallax.y * 14 * metric.strength}
             delay={0.65 + index * 0.08}
           />
         ))}

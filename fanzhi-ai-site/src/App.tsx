@@ -268,7 +268,7 @@ function Contact() {
             href="mailto:hello@fanzhi.ai"
             className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-full bg-ink px-5 py-3 text-sm font-black text-white transition hover:bg-deep focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2"
           >
-            联系泛之 AI
+            联系泛知科技
             <Handshake className="h-5 w-5 text-signal" />
           </a>
         </div>
@@ -288,7 +288,7 @@ function App() {
       <Scenarios />
       <Contact />
       <footer className="bg-ink px-5 py-8 text-center text-sm font-semibold text-cloud/42 sm:px-8">
-        泛之 AI / AI consulting, training and delivery.
+        泛知科技 / AI consulting, training and delivery.
       </footer>
     </main>
   )
