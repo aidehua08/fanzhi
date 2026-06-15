@@ -52,6 +52,46 @@
   height: 100%;
 }
 
+.cockpit-canvas--fallback {
+  background:
+    radial-gradient(circle at 68% 34%, rgba(94, 234, 212, 0.18), transparent 22rem),
+    radial-gradient(circle at 26% 72%, rgba(255, 77, 109, 0.12), transparent 26rem);
+}
+
+.cockpit-canvas--fallback::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background-image:
+    radial-gradient(circle, rgba(226, 232, 240, 0.7) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(94, 234, 212, 0.78) 0 1px, transparent 1.4px),
+    linear-gradient(rgba(94, 234, 212, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.1) 1px, transparent 1px);
+  background-position:
+    12px 20px,
+    46px 81px,
+    0 0,
+    0 0;
+  background-size:
+    120px 120px,
+    180px 180px,
+    54px 54px,
+    54px 54px;
+  opacity: 0.38;
+}
+
+.cockpit-canvas--fallback::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  content: '';
+  background:
+    linear-gradient(180deg, transparent, rgba(94, 234, 212, 0.07)),
+    repeating-linear-gradient(90deg, rgba(94, 234, 212, 0.08) 0 1px, transparent 1px 60px);
+  transform: perspective(600px) rotateX(58deg);
+  transform-origin: bottom;
+}
+
 .hero-cockpit-fallback {
   position: absolute;
   right: -8rem;

@@ -109,11 +109,25 @@ export function CockpitCanvas({ pointerRef, reducedMotion }: CockpitCanvasProps)
     if (!hostElement) return
     const host: HTMLDivElement = hostElement
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
-      powerPreference: 'high-performance',
-    })
+    const testCanvas = document.createElement('canvas')
+    const hasWebGl = Boolean(testCanvas.getContext('webgl2') ?? testCanvas.getContext('webgl'))
+
+    if (!hasWebGl) {
+      host.classList.add('cockpit-canvas--fallback')
+      return () => host.classList.remove('cockpit-canvas--fallback')
+    }
+
+    let renderer: THREE.WebGLRenderer
+    try {
+      renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance',
+      })
+    } catch {
+      host.classList.add('cockpit-canvas--fallback')
+      return () => host.classList.remove('cockpit-canvas--fallback')
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.55))
     renderer.setClearColor(0x000000, 0)
     renderer.outputColorSpace = THREE.SRGBColorSpace
