@@ -17,7 +17,7 @@ export const navItems = [
 
 export const heroContent = {
   brand: '泛知科技',
-  eyebrow: 'AI IMPLEMENTATION COCKPIT',
+  eyebrow: 'HUMAN × AI IMPLEMENTATION PARTNER',
   title: ['让 AI 真正', '跑进业务现场'],
   subtitle: '从老板痛点出发，完成咨询诊断、团队培训、Agent 开发、知识库建设和落地陪跑，把 AI 做进企业每天真实发生的流程里。',
   primaryCta: '预约 AI 诊断',

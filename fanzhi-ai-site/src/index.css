@@ -12,11 +12,13 @@
 html {
   scroll-behavior: smooth;
   background: #06101c;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: #06101c;
   color: #d9eef4;
   font-family: Inter, 'Noto Sans SC', system-ui, sans-serif;

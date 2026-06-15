@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { CockpitCanvas } from './CockpitCanvas'
 import { HeroHud } from './HeroHud'
 import { PointerAura } from './PointerAura'
 import type { PointerState, Ripple } from '../../hooks/usePointerParallax'
@@ -88,13 +87,15 @@ export function HeroCockpit() {
     <section
       ref={rootRef}
       className="hero-cockpit"
-      aria-label="泛知科技企业 AI 经营舱"
+      aria-label="泛知科技企业 AI 落地服务首页"
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onClick={addRipple}
     >
-      <CockpitCanvas pointerRef={pointerRef} reducedMotion={reducedMotion} />
-      <div className="hero-cockpit-fallback" aria-hidden="true" />
+      <div className="hero-media-backdrop" aria-hidden="true">
+        <img src="/hero/human-ai-handshake.jpg" alt="" />
+      </div>
+      <div className="hero-energy-field" aria-hidden="true" />
       <PointerAura ripples={ripples} disabled={reducedMotion} />
       <HeroHud onPrimaryClick={handlePrimaryClick} />
     </section>

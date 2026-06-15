@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { heroContent, navItems } from '../../data/siteContent'
-import { AIDemoConsole } from './AIDemoConsole'
 
 type HeroHudProps = {
   onPrimaryClick: (event: React.MouseEvent<HTMLAnchorElement>) => void
@@ -24,7 +23,7 @@ export function HeroHud({ onPrimaryClick }: HeroHudProps) {
         </nav>
       </header>
 
-      <div className="hero-command-layout">
+      <div className="hero-media-layout">
         <motion.div
           className="hero-copy-panel"
           initial={{ opacity: 0, y: 22 }}
@@ -40,7 +39,7 @@ export function HeroHud({ onPrimaryClick }: HeroHudProps) {
             ))}
           </h1>
           <p className="hero-subtitle">{heroContent.subtitle}</p>
-          <div className="hero-trust-strip" aria-label="泛知科技服务范围">
+          <div className="hero-trust-strip" aria-label="泛知科技交付范围">
             <span>AI 咨询诊断</span>
             <span>企业培训</span>
             <span>Agent 开发</span>
@@ -56,8 +55,6 @@ export function HeroHud({ onPrimaryClick }: HeroHudProps) {
             </a>
           </div>
         </motion.div>
-
-        <AIDemoConsole />
       </div>
 
       <a className="hero-scroll-cue" href="#consulting" aria-label="继续浏览">
