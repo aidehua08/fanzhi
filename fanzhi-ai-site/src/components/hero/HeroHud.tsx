@@ -26,9 +26,9 @@ export function HeroHud({ onPrimaryClick }: HeroHudProps) {
       <div className="hero-media-layout">
         <motion.div
           className="hero-copy-panel"
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.14 }}
+          initial={{ opacity: 0, y: 28, scale: 0.985 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.9, delay: 1.65, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="hero-eyebrow">{heroContent.eyebrow}</p>
           <h1 className="hero-cockpit-title">
