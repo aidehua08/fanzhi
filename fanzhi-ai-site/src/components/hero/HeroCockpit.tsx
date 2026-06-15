@@ -93,10 +93,17 @@ export function HeroCockpit() {
       onClick={addRipple}
     >
       <div className="hero-media-backdrop" aria-hidden="true">
-        <img className="hero-media-final" src="/hero/human-ai-handshake.jpg" alt="" />
-        <div className="hero-hand-layer hero-hand-layer-left" />
-        <div className="hero-hand-layer hero-hand-layer-right" />
-        <div className="hero-hand-contact" />
+        <video
+          className="hero-media-video"
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          poster="/hero/human-ai-handshake.jpg"
+        >
+          <source src="/hero/human-ai-handshake-intro.mp4" type="video/mp4" />
+        </video>
+        <img className="hero-media-poster" src="/hero/human-ai-handshake.jpg" alt="" />
       </div>
       <div className="hero-energy-field" aria-hidden="true" />
       <PointerAura ripples={ripples} disabled={reducedMotion} />
