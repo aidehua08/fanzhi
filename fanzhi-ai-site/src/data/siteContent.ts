@@ -8,20 +8,20 @@ import {
 } from 'lucide-react'
 
 export const navItems = [
-  { label: '咨询', href: '#consulting' },
-  { label: '培训', href: '#training' },
-  { label: '落地', href: '#delivery' },
+  { label: '方案', href: '#consulting' },
+  { label: '使命', href: '#training' },
+  { label: '路径', href: '#delivery' },
   { label: '案例', href: '#cases' },
   { label: '联系', href: '#contact' },
 ]
 
 export const heroContent = {
   brand: '泛知科技',
-  eyebrow: 'HUMAN × AI IMPLEMENTATION PARTNER',
-  title: ['让 AI 真正', '跑进业务现场'],
-  subtitle: '从老板痛点出发，完成咨询诊断、团队培训、Agent 开发、知识库建设和落地陪跑，把 AI 做进企业每天真实发生的流程里。',
-  primaryCta: '预约 AI 诊断',
-  secondaryCta: '查看落地路径',
+  eyebrow: 'ENTERPRISE AI SOLUTIONS',
+  title: ['共创下一代', '智能商业'],
+  subtitle: '泛知科技为企业提供前沿 AI 解决方案，从战略咨询、知识体系建设到 Agent 与工作流落地，推动商业智能化转型，让 AI 真正服务于商业价值创造。',
+  primaryCta: '开启 AI 之旅',
+  secondaryCta: '了解解决方案',
 }
 
 export const heroMetrics = [
@@ -33,75 +33,75 @@ export const heroMetrics = [
 
 export const serviceTracks = [
   {
-    title: 'AI 诊断咨询',
-    subtitle: '先找到最值得被 AI 改造的业务入口',
-    body: '从经营目标、利润结构和团队协作开始，筛出重复劳动、知识断层、客户响应和管理决策里的高价值场景。',
+    title: '商业智能化咨询',
+    subtitle: '从顶层思维设计企业 AI 转型路径',
+    body: '围绕战略目标、业务模型、组织能力和增长瓶颈，识别最值得优先智能化的关键场景，形成清晰可执行的转型路线。',
     icon: BrainCircuit,
   },
   {
-    title: '企业 AI 培训',
-    subtitle: '让管理层会判断，让团队会使用',
-    body: '围绕老板、销售、客服、运营、行政等岗位设计实战训练，把 AI 变成团队共同语言，而不是少数人的新玩具。',
+    title: 'AI 能力建设',
+    subtitle: '让团队理解 AI，并能把 AI 用在业务中',
+    body: '面向管理层和关键岗位建立 AI 认知、工具能力和应用方法，让企业内部形成持续使用、持续沉淀、持续迭代的智能化能力。',
     icon: GraduationCap,
   },
   {
-    title: 'Agent 开发与陪跑',
-    subtitle: '把想法接进流程，做成可运行系统',
-    body: '搭建企业知识库、业务 Agent 和自动化工作流，从试点上线到持续调优，陪团队真正跑起来。',
+    title: '端到端落地交付',
+    subtitle: '从方案设计到系统上线，解决真实问题',
+    body: '建设企业知识库、业务 Agent 和自动化工作流，把咨询、培训、开发、上线和陪跑连成完整闭环，形成客户最佳 AI 转型路径。',
     icon: Workflow,
   },
 ]
 
 export const capabilities = [
-  '企业 AI 战略',
-  '老板 AI 诊断',
-  '员工实战训练',
-  '销售跟进 Agent',
-  '客服问答 Agent',
-  '企业知识库',
-  'SOP 自动化',
-  '私域运营助手',
-  '数据分析助理',
-  '内容生产流程',
-  '管理制度问答',
-  '落地陪跑优化',
+  '企业级 AI 解决方案',
+  '商业智能化转型',
+  'AI 战略咨询',
+  '知识生产力系统',
+  '企业知识飞轮',
+  'Agent 应用开发',
+  '业务流程自动化',
+  '团队 AI 赋能',
+  '销售增长智能体',
+  '客服运营智能化',
+  '数据分析与决策',
+  '端到端落地陪跑',
 ]
 
 export const architecture = [
-  ['DATA', '文档 / 表格 / 客户记录 / SOP / 业务经验'],
-  ['KNOWLEDGE', '清洗、切片、标注、权限、知识图谱'],
-  ['AGENT', '问答、跟进、分析、生成、提醒、执行'],
-  ['WORKFLOW', '销售、客服、运营、管理流程持续优化'],
+  ['STRATEGY', '从业务目标出发，定义企业 AI 转型路径'],
+  ['KNOWLEDGE', '沉淀经验、流程、文档与数据，形成知识飞轮'],
+  ['SOLUTION', '构建 Agent、知识库与自动化工作流'],
+  ['VALUE', '持续优化使用效果，推动增长、效率与决策升级'],
 ]
 
 export const services = [
-  ['01', '诊断企业痛点', '从老板视角看利润、效率和交付瓶颈，筛选最先产生价值的 AI 场景。'],
-  ['02', '培训关键岗位', '让管理层会判断，员工会使用，团队能把 AI 融入日常工作。'],
-  ['03', '建设知识库', '把文档、经验、FAQ、制度和 SOP 变成可查询、可调用的企业知识资产。'],
-  ['04', '开发业务 Agent', '围绕销售、客服、运营、行政等流程搭建可执行的 AI 助手。'],
-  ['05', '陪跑上线优化', '跟进使用反馈，持续优化提示词、流程、数据和协作方式。'],
+  ['01', 'AI 转型战略设计', '从顶层思维出发，结合企业业务目标和组织现状，规划最适合的 AI 转型路径。'],
+  ['02', '知识生产力建设', '把长期积累的业务经验、制度流程和行业知识转化为可复用、可调用的企业智能资产。'],
+  ['03', '企业级 Agent 开发', '围绕销售、客服、运营、管理等关键场景，开发真正服务业务结果的 AI 应用。'],
+  ['04', '团队 AI 赋能培训', '帮助管理层和业务团队建立 AI 认知、使用能力和落地方法，让变革在组织内部发生。'],
+  ['05', '端到端落地陪跑', '从咨询、方案、开发到上线运营持续跟进，形成客户最佳 AI 转型路径。'],
 ]
 
 export const scenarios = [
   {
-    title: '销售跟进 Agent',
-    label: '增长场景',
+    title: '销售增长智能体',
+    label: '业务增长',
     icon: ChartNoAxesCombined,
     visual: 'sales-agent',
-    points: ['自动整理客户资料', '生成跟进话术', '提醒下一步动作'],
+    points: ['识别客户意向', '生成跟进策略', '提升销售转化效率'],
   },
   {
-    title: '企业知识库问答',
-    label: '组织效率',
+    title: '知识生产力平台',
+    label: '知识飞轮',
     icon: DatabaseZap,
     visual: 'knowledge-base',
-    points: ['沉淀制度与 SOP', '新人快速查询', '减少重复沟通'],
+    points: ['沉淀业务知识', '复用组织经验', '形成智能化工作方式'],
   },
   {
-    title: 'AI 客服与运营助手',
-    label: '服务提效',
+    title: '客服与运营智能化',
+    label: '服务升级',
     icon: MessagesSquare,
     visual: 'service-agent',
-    points: ['回答高频问题', '识别客户意向', '辅助私域运营'],
+    points: ['提升响应效率', '优化客户体验', '辅助运营决策'],
   },
 ]

@@ -40,10 +40,10 @@ export function HeroHud({ onPrimaryClick }: HeroHudProps) {
           </h1>
           <p className="hero-subtitle">{heroContent.subtitle}</p>
           <div className="hero-trust-strip" aria-label="泛知科技交付范围">
-            <span>AI 咨询诊断</span>
-            <span>企业培训</span>
-            <span>Agent 开发</span>
-            <span>知识库陪跑</span>
+            <span>100+ 项目经验</span>
+            <span>端到端解决方案</span>
+            <span>企业知识飞轮</span>
+            <span>商业智能化转型</span>
           </div>
           <div className="hero-actions">
             <a href="#contact" className="hero-primary-btn" onClick={onPrimaryClick}>

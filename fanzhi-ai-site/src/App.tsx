@@ -39,7 +39,7 @@ function CapabilityMarquee() {
       <div className="mb-8 px-5 sm:px-8">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-black uppercase tracking-[0.32em] text-signal">
-            AI 落地能力地图
+            企业级 AI 解决方案
           </p>
         </div>
       </div>
@@ -66,14 +66,14 @@ function Method() {
       <div className="relative mx-auto max-w-7xl">
         <FadeIn>
           <h2 className="section-title max-w-5xl font-display text-[clamp(3rem,10vw,9rem)] font-black uppercase leading-[0.9] tracking-normal">
-            AI 落地，
-            <span className="block">不止培训</span>
+            推动变革
+            <span className="block">真正发生</span>
           </h2>
         </FadeIn>
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <FadeIn delay={0.1}>
             <p className="max-w-xl text-xl font-medium leading-relaxed text-cloud/76 sm:text-2xl">
-              真正的落地不是上一节课，也不是买一个工具。我们先理解企业怎么赚钱、怎么服务客户、团队每天卡在哪里，再把 AI 训练、工具和 Agent 做进实际流程。
+              我们的使命是让 AI 技术真正服务于商业价值创造。泛知科技以业务增长为目标，把前沿 AI 能力转化为企业可使用、可沉淀、可持续迭代的解决方案。
             </p>
           </FadeIn>
           <div className="grid gap-4">
@@ -111,11 +111,11 @@ function Architecture() {
         <FadeIn>
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
             <h2 className="font-display text-[clamp(3.2rem,10vw,8.8rem)] font-black uppercase leading-none tracking-normal">
-              从资料
-              <span className="block text-teal">到执行</span>
+              知识飞轮
+              <span className="block text-teal">驱动增长</span>
             </h2>
             <p className="max-w-xl text-xl font-medium leading-relaxed text-ink/66">
-              企业真正缺的不是更多 AI 概念，而是把文档、经验、客户记录和 SOP 变成可查询、可调用、可执行的工作系统。
+              我们懂业务，也重视长期知识积累。通过知识生产力系统，把企业经验、流程、数据和行业理解沉淀为持续进化的智能化能力。
             </p>
           </div>
         </FadeIn>
@@ -146,7 +146,7 @@ function Services() {
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <h2 className="font-display text-[clamp(3.5rem,12vw,10rem)] font-black uppercase leading-none tracking-normal">
-            交付内容
+            解决方案
           </h2>
         </FadeIn>
         <div className="mt-12 divide-y divide-ink/12 border-y border-ink/12">
@@ -231,10 +231,10 @@ function Scenarios() {
         <FadeIn>
           <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <h2 className="section-title font-display text-[clamp(3.3rem,11vw,9.5rem)] font-black uppercase leading-none tracking-normal">
-              场景样板
+              行业实践
             </h2>
             <p className="max-w-md text-lg leading-relaxed text-cloud/68">
-              先用典型业务场景呈现落地方式，后续可以替换成你的真实客户案例、截图和项目数据。
+              我们拥有超过 100 家项目经验，覆盖多个行业与业务场景。这里先展示典型场景，后续可以替换成你的真实案例、截图和项目数据。
             </p>
           </div>
         </FadeIn>
@@ -253,10 +253,10 @@ function Contact() {
         <div>
           <p className="mb-4 text-sm font-black uppercase tracking-[0.28em] text-teal">next step</p>
           <h2 className="max-w-3xl text-4xl font-black leading-tight sm:text-6xl">
-            从一次 AI 落地诊断开始。
+            准备开始你的 AI 之旅？
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/62">
-            带着你的业务问题、团队现状和想提升的环节来，我们先判断哪里最适合用 AI。微信二维码先保留占位，后续替换成你的真实二维码或飞书表单链接。
+            立即联系我们，获得专业的产品演示和定制化解决方案。我们会从企业现状出发，帮助你规划可执行、可落地、可持续优化的 AI 转型路径。
           </p>
         </div>
         <div className="contact-qr-card">
@@ -288,7 +288,7 @@ function App() {
       <Scenarios />
       <Contact />
       <footer className="bg-ink px-5 py-8 text-center text-sm font-semibold text-cloud/42 sm:px-8">
-        泛知科技 / AI consulting, training and delivery.
+        泛知科技 / 共创下一代智能商业
       </footer>
     </main>
   )
