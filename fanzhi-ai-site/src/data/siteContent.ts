@@ -17,9 +17,9 @@ export const navItems = [
 
 export const heroContent = {
   brand: '泛知科技',
-  eyebrow: 'ENTERPRISE AI SOLUTIONS',
-  title: ['共创下一代', '智能商业'],
-  subtitle: '泛知科技为企业提供前沿 AI 解决方案，从战略咨询、知识体系建设到 Agent 与工作流落地，推动商业智能化转型，让 AI 真正服务于商业价值创造。',
+  eyebrow: 'HUMAN × AI COLLABORATION',
+  title: ['携手进入', 'AI 时代'],
+  subtitle: '泛知科技，为企业构建下一代智能商业能力。',
   primaryCta: '开启 AI 之旅',
   secondaryCta: '了解解决方案',
 }
