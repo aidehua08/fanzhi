@@ -4,9 +4,16 @@ import { heroContent, navItems } from '../../data/siteContent'
 
 type HeroHudProps = {
   onPrimaryClick: (event: React.MouseEvent<HTMLAnchorElement>) => void
+  onRequestContact: () => void
 }
 
-export function HeroHud({ onPrimaryClick }: HeroHudProps) {
+export function HeroHud({ onPrimaryClick, onRequestContact }: HeroHudProps) {
+  function handlePrimaryClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault()
+    onPrimaryClick(event)
+    onRequestContact()
+  }
+
   return (
     <div className="hero-hud">
       <header className="hero-nav">
@@ -46,7 +53,7 @@ export function HeroHud({ onPrimaryClick }: HeroHudProps) {
             <span>商业智能化转型</span>
           </div>
           <div className="hero-actions">
-            <a href="#contact" className="hero-primary-btn" onClick={onPrimaryClick}>
+            <a href="#contact" className="hero-primary-btn" onClick={handlePrimaryClick}>
               {heroContent.primaryCta}
               <ArrowUpRight className="h-4 w-4" />
             </a>

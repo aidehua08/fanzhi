@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ChevronRight, Handshake, Sparkles } from 'lucide-react'
-import type { ReactNode } from 'react'
+import { ChevronRight, Handshake, Sparkles, X } from 'lucide-react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { HeroCockpit } from './components/hero/HeroCockpit'
 import {
   architecture,
@@ -246,7 +246,7 @@ function Scenarios() {
   )
 }
 
-function Contact() {
+function Contact({ onRequestContact }: { onRequestContact: () => void }) {
   return (
     <section id="contact" className="bg-paper px-5 py-16 text-ink sm:px-8 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-10 rounded-[2rem] border border-ink/10 bg-white p-6 shadow-xl shadow-ink/5 sm:p-10 lg:grid-cols-[1fr_18rem] lg:items-center">
@@ -260,33 +260,94 @@ function Contact() {
           </p>
         </div>
         <div className="contact-qr-card">
-          <div className="contact-qr">
-            <span>微信</span>
-            <span>QR</span>
-          </div>
-          <a
-            href="mailto:hello@fanzhi.ai"
+          <img className="contact-qr-image" src="/contact/wechat-qr.jpg" alt="泛知科技微信二维码" />
+          <button
+            type="button"
+            onClick={onRequestContact}
             className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-full bg-ink px-5 py-3 text-sm font-black text-white transition hover:bg-deep focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2"
           >
-            联系泛知科技
+            扫码预约咨询
             <Handshake className="h-5 w-5 text-signal" />
-          </a>
+          </button>
         </div>
       </div>
     </section>
   )
 }
 
+function ContactModal({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean
+  onClose: () => void
+}) {
+  useEffect(() => {
+    if (!isOpen) return undefined
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') onClose()
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen, onClose])
+
+  if (!isOpen) return null
+
+  return (
+    <motion.div
+      className="contact-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <button className="contact-modal-backdrop" type="button" aria-label="关闭联系弹窗" onClick={onClose} />
+      <motion.div
+        className="contact-modal-panel"
+        initial={{ opacity: 0, y: 28, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <button className="contact-modal-close" type="button" aria-label="关闭" onClick={onClose}>
+          <X className="h-5 w-5" />
+        </button>
+        <div className="contact-modal-copy">
+          <p>微信预约</p>
+          <h2 id="contact-modal-title">开启你的 AI 转型沟通</h2>
+          <span>
+            扫码添加微信，告诉我们你的行业、团队规模和当前最想解决的业务问题。我们会先帮你判断最值得落地的 AI 场景。
+          </span>
+        </div>
+        <div className="contact-modal-qr-wrap">
+          <img className="contact-modal-qr" src="/contact/wechat-qr.jpg" alt="泛知科技微信二维码" />
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 function App() {
+  const [isContactOpen, setIsContactOpen] = useState(false)
+
   return (
     <main className="min-h-screen overflow-x-clip bg-ink font-body">
-      <HeroCockpit />
+      <HeroCockpit onRequestContact={() => setIsContactOpen(true)} />
       <CapabilityMarquee />
       <Method />
       <Architecture />
       <Services />
       <Scenarios />
-      <Contact />
+      <Contact onRequestContact={() => setIsContactOpen(true)} />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <footer className="bg-ink px-5 py-8 text-center text-sm font-semibold text-cloud/42 sm:px-8">
         泛知科技 / 共创下一代智能商业
       </footer>

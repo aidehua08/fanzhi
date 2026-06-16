@@ -3,7 +3,11 @@ import { HeroHud } from './HeroHud'
 import { PointerAura } from './PointerAura'
 import type { PointerState, Ripple } from '../../hooks/usePointerParallax'
 
-export function HeroCockpit() {
+type HeroCockpitProps = {
+  onRequestContact: () => void
+}
+
+export function HeroCockpit({ onRequestContact }: HeroCockpitProps) {
   const rootRef = useRef<HTMLElement | null>(null)
   const pointerRef = useRef<PointerState>({ x: 0, y: 0, pageX: 0, pageY: 0 })
   const rafRef = useRef(0)
@@ -107,7 +111,7 @@ export function HeroCockpit() {
       </div>
       <div className="hero-energy-field" aria-hidden="true" />
       <PointerAura ripples={ripples} disabled={reducedMotion} />
-      <HeroHud onPrimaryClick={handlePrimaryClick} />
+      <HeroHud onPrimaryClick={handlePrimaryClick} onRequestContact={onRequestContact} />
     </section>
   )
 }
