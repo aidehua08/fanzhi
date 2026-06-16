@@ -101,7 +101,7 @@ export function HeroCockpit() {
           preload="auto"
           poster="/hero/human-ai-handshake.jpg"
         >
-          <source src="/hero/human-ai-handshake-intro.mp4" type="video/mp4" />
+          <source src="/hero/company-home-hero.mp4" type="video/mp4" />
         </video>
         <img className="hero-media-poster" src="/hero/human-ai-handshake.jpg" alt="" />
       </div>
