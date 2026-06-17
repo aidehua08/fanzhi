@@ -3,6 +3,15 @@ import { HeroHud } from './HeroHud'
 import { PointerAura } from './PointerAura'
 import type { PointerState, Ripple } from '../../hooks/usePointerParallax'
 
+type NavigatorWithConnection = Navigator & {
+  connection?: {
+    effectiveType?: string
+    saveData?: boolean
+    addEventListener?: (type: 'change', listener: () => void) => void
+    removeEventListener?: (type: 'change', listener: () => void) => void
+  }
+}
+
 type HeroCockpitProps = {
   onRequestContact: () => void
 }
@@ -13,15 +22,33 @@ export function HeroCockpit({ onRequestContact }: HeroCockpitProps) {
   const rafRef = useRef(0)
   const [ripples, setRipples] = useState<Ripple[]>([])
   const [reducedMotion, setReducedMotion] = useState(false)
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(false)
+  const [isVideoReady, setIsVideoReady] = useState(false)
 
   useEffect(() => {
     const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const update = () => setReducedMotion(query.matches)
+    const connection = (window.navigator as NavigatorWithConnection).connection
+
+    const update = () => {
+      const prefersReducedMotion = query.matches
+      const saveData = Boolean(connection?.saveData)
+      const effectiveType = connection?.effectiveType ?? ''
+      const slowConnection = effectiveType === 'slow-2g' || effectiveType === '2g'
+      const canPlayHeroVideo = !prefersReducedMotion && !saveData && !slowConnection
+
+      setReducedMotion(prefersReducedMotion)
+      setShouldPlayVideo(canPlayHeroVideo)
+      if (!canPlayHeroVideo) setIsVideoReady(false)
+    }
 
     update()
     query.addEventListener('change', update)
+    connection?.addEventListener?.('change', update)
 
-    return () => query.removeEventListener('change', update)
+    return () => {
+      query.removeEventListener('change', update)
+      connection?.removeEventListener?.('change', update)
+    }
   }, [])
 
   useEffect(() => {
@@ -97,17 +124,29 @@ export function HeroCockpit({ onRequestContact }: HeroCockpitProps) {
       onClick={addRipple}
     >
       <div className="hero-media-backdrop" aria-hidden="true">
-        <video
-          className="hero-media-video"
-          autoPlay
-          muted
-          playsInline
-          preload="auto"
-          poster="/hero/human-ai-handshake.jpg"
-        >
-          <source src="/hero/company-home-hero.mp4" type="video/mp4" />
-        </video>
-        <img className="hero-media-poster" src="/hero/human-ai-handshake.jpg" alt="" />
+        {shouldPlayVideo ? (
+          <video
+            className={`hero-media-video${isVideoReady ? ' is-ready' : ''}`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            disablePictureInPicture
+            preload="metadata"
+            poster="/hero/human-ai-handshake.jpg"
+            onCanPlay={() => setIsVideoReady(true)}
+          >
+            <source src="/hero/company-home-hero.mp4" type="video/mp4" />
+          </video>
+        ) : null}
+        <img
+          className="hero-media-poster"
+          src="/hero/human-ai-handshake.jpg"
+          alt=""
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
       </div>
       <div className="hero-energy-field" aria-hidden="true" />
       <PointerAura ripples={ripples} disabled={reducedMotion} />

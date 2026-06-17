@@ -266,7 +266,7 @@ function Contact({ onRequestContact }: { onRequestContact: () => void }) {
             onClick={onRequestContact}
             className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-full bg-ink px-5 py-3 text-sm font-black text-white transition hover:bg-deep focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2"
           >
-            扫码预约咨询
+            获得一次 AI 诊断
             <Handshake className="h-5 w-5 text-signal" />
           </button>
         </div>
@@ -322,9 +322,9 @@ function ContactModal({
         </button>
         <div className="contact-modal-copy">
           <p>微信预约</p>
-          <h2 id="contact-modal-title">开启你的 AI 转型沟通</h2>
+          <h2 id="contact-modal-title">获得一次 AI 诊断</h2>
           <span>
-            扫码添加微信，告诉我们你的行业、团队规模和当前最想解决的业务问题。我们会先帮你判断最值得落地的 AI 场景。
+            扫码添加微信，告诉我们你的行业、团队规模和当前最想解决的业务问题。我们会帮你判断最值得优先落地的 AI 场景。
           </span>
         </div>
         <div className="contact-modal-qr-wrap">
