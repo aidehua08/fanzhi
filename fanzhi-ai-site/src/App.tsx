@@ -142,7 +142,7 @@ function Architecture() {
 
 function Services() {
   return (
-    <section className="rounded-t-[2.5rem] bg-paper px-5 py-20 text-ink sm:px-8 sm:py-28 lg:rounded-t-[4rem]">
+    <section className="bg-paper px-5 py-20 text-ink sm:px-8 sm:py-28">
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <h2 className="font-display text-[clamp(3.5rem,12vw,10rem)] font-black uppercase leading-none tracking-normal">
