@@ -88,6 +88,7 @@ export const scenarios = [
     label: '业务增长',
     icon: ChartNoAxesCombined,
     visual: 'sales-agent',
+    image: '/cases/sales-growth-agent-demo-website-style.png',
     points: ['识别客户意向', '生成跟进策略', '提升销售转化效率'],
   },
   {

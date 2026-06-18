@@ -314,6 +314,28 @@ img {
   animation: visualSweep 6s ease-in-out infinite;
 }
 
+.scenario-visual-real {
+  display: grid;
+  align-items: stretch;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(128, 255, 242, 0.18), transparent 34%),
+    #06101c;
+}
+
+.scenario-visual-real::after {
+  content: none;
+}
+
+.scenario-visual-image {
+  width: 100%;
+  height: 100%;
+  min-height: 22rem;
+  display: block;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
 .scenario-visual-grid {
   position: absolute;
   inset: 0;

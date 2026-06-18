@@ -167,7 +167,15 @@ function Services() {
   )
 }
 
-function ScenarioVisual({ type, title }: { type: string; title: string }) {
+function ScenarioVisual({ image, type, title }: { image?: string; type: string; title: string }) {
+  if (image) {
+    return (
+      <div className="scenario-visual scenario-visual-real" aria-label={title}>
+        <img className="scenario-visual-image" src={image} alt={`${title}案例展示`} loading="lazy" />
+      </div>
+    )
+  }
+
   return (
     <div className={`scenario-visual scenario-visual-${type}`} aria-label={title}>
       <div className="scenario-visual-grid" />
@@ -218,7 +226,7 @@ function ScenarioCard({
             ))}
           </ul>
         </div>
-        <ScenarioVisual type={scenario.visual} title={scenario.title} />
+        <ScenarioVisual image={scenario.image} type={scenario.visual} title={scenario.title} />
       </div>
     </motion.article>
   )
