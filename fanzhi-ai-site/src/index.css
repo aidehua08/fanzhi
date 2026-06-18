@@ -453,7 +453,7 @@ img {
   border: 1px solid rgba(6, 16, 28, 0.12);
   border-radius: 1.25rem;
   background: #ffffff;
-  object-fit: cover;
+  object-fit: contain;
   padding: 0.55rem;
 }
 
@@ -533,10 +533,12 @@ img {
 }
 
 .contact-modal-qr {
+  aspect-ratio: 1;
   width: 100%;
   display: block;
   border-radius: 0.9rem;
   background: #ffffff;
+  object-fit: contain;
 }
 
 .contact-modal-close {
